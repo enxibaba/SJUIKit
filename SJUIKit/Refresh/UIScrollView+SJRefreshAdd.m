@@ -190,13 +190,13 @@ char const SJRefreshingNonePageSize = -1;
         }
         else {
             self.mj_footer.hidden = NO;
-            if ( itemCount < config.sj_pageSize ) [self.mj_footer endRefreshingWithNoMoreData];   // 如果数据小于pageSize
+            if ( itemCount < config.sj_pageSize ) [self.mj_footer endRefreshing];   // 如果数据小于pageSize
             else  if ( self.mj_footer.state == MJRefreshStateNoMoreData ) [self.mj_footer resetNoMoreData];
         }
     }
     /// footer
     else {
-        if ( itemCount < config.sj_pageSize ) [self.mj_footer endRefreshingWithNoMoreData];   // 如果数据小于pageSize
+        if ( itemCount < config.sj_pageSize ) [self.mj_footer endRefreshing];   // 如果数据小于pageSize
         else if ( self.mj_footer.state == MJRefreshStateNoMoreData ) [self.mj_footer resetNoMoreData];
         else [self.mj_footer endRefreshing];
     }
