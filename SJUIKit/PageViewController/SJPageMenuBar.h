@@ -86,6 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol SJPageMenuBarDelegate <NSObject>
 @optional
 - (void)pageMenuBar:(SJPageMenuBar *)bar focusedIndexDidChange:(NSUInteger)index;
+- (void)pageMenuBarClickIndex:(NSUInteger)index;
 @end
 
 

@@ -1,0 +1,14 @@
+Target dependency graph (6 targets)
+MJRefresh in Pods
+Masonry in Pods
+YYModel in Pods
+SJUIKit in Pods, depends on:
+MJRefresh in Pods (explicit)
+YYModel in Pods (explicit)
+Pods-SJUIKit_Example in Pods, depends on:
+MJRefresh in Pods (explicit)
+Masonry in Pods (explicit)
+SJUIKit in Pods (explicit)
+YYModel in Pods (explicit)
+Pods-SJUIKit_Tests in Pods, depends on:
+Pods-SJUIKit_Example in Pods (explicit)

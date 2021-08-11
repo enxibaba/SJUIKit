@@ -78,6 +78,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)scrollToItemAtIndex:(NSUInteger)toIdx animated:(BOOL)animated {
     [self _reloadDataIfNeeded];
+
+    if ( [self.delegate respondsToSelector:@selector(pageMenuBarClickIndex:)] ) {
+            [self.delegate pageMenuBarClickIndex: toIdx];
+    }
+
     if ( [self _isSafeIndexForGetting:toIdx] && _focusedIndex != toIdx ) {
         NSUInteger previousIdx = self.focusedIndex;
         [self _performWithAnimated:animated actions:^{
