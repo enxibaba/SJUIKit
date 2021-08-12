@@ -434,11 +434,10 @@ NS_ASSUME_NONNULL_BEGIN
         // 默认实现为: 点击之后滚动过去
         _gestureHandler.singleTapHandler = ^(SJPageMenuBar * _Nonnull bar, CGPoint location) {
 
-            [bar scrollToItemAtIndex:[bar indexOfItemViewAtPoint:location] animated:YES];
-
             if ( [self.delegate respondsToSelector:@selector(pageMenuBarClickIndex:)] ) {
                 [self.delegate pageMenuBarClickIndex: [bar indexOfItemViewAtPoint:location]];
             }
+            [bar scrollToItemAtIndex:[bar indexOfItemViewAtPoint:location] animated:YES];
 
         };
     }
