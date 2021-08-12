@@ -78,11 +78,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)scrollToItemAtIndex:(NSUInteger)toIdx animated:(BOOL)animated {
     [self _reloadDataIfNeeded];
-
-    if ( [self.delegate respondsToSelector:@selector(pageMenuBarClickIndex:)] ) {
-            [self.delegate pageMenuBarClickIndex: toIdx];
-    }
-
     if ( [self _isSafeIndexForGetting:toIdx] && _focusedIndex != toIdx ) {
         NSUInteger previousIdx = self.focusedIndex;
         [self _performWithAnimated:animated actions:^{
@@ -438,7 +433,13 @@ NS_ASSUME_NONNULL_BEGIN
         _gestureHandler = SJPageMenuBarGestureHandler.alloc.init;
         // 默认实现为: 点击之后滚动过去
         _gestureHandler.singleTapHandler = ^(SJPageMenuBar * _Nonnull bar, CGPoint location) {
+
             [bar scrollToItemAtIndex:[bar indexOfItemViewAtPoint:location] animated:YES];
+
+            if ( [self.delegate respondsToSelector:@selector(pageMenuBarClickIndex:)] ) {
+                [self.delegate pageMenuBarClickIndex: [bar indexOfItemViewAtPoint:location]];
+            }
+
         };
     }
     return _gestureHandler;
